@@ -1,0 +1,1 @@
+curl -H "X-API-Key: a90a3a10" https://my.api.mockaroo.com/country_api.json
