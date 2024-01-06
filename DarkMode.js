@@ -6,13 +6,15 @@
             if (Slider.checked == true){
                 //checked - dark mode
                 r.style.setProperty('--backgroundcolor', 'url(bgcDark.jpg)');
-                r.style.setProperty('--fontcolor', 'rgb(166, 166, 166)');
-                console.log("true")
+                r.style.setProperty('--fontcolor', 'whitesmoke');
+                r.style.setProperty('--thHoverColor', 'black');
+                
             } else {
                 //unchecked - normal mode
                 r.style.setProperty('--backgroundcolor', 'url(bgc.jpg)');
                 r.style.setProperty('--fontcolor', 'black');
-                console.log("false")
+                r.style.setProperty('--thHoverColor', 'black');
+                
             }
 
     }
