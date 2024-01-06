@@ -13,11 +13,41 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => displayData(data))
             .catch(error => console.error('Error fetching data:', error));
     }
+    // Kod filtra dla tabeli
+    function filterTable(searchTerm) {
+      const table = document.querySelector('.table-bordered');
+      const rows = table.getElementsByTagName('tr');
+
+      for (let i = 1; i < rows.length; i++) {
+          const cells = rows[i].getElementsByTagName('td');
+          let rowText = '';
+
+          for (let j = 0; j < cells.length; j++) {
+              rowText += cells[j].textContent.toLowerCase() + ' ';
+          }
+
+          if (rowText.includes(searchTerm.toLowerCase())) {
+              rows[i].style.display = '';
+          } else {
+              rows[i].style.display = 'none';
+          }
+      }
+  }
 
     function displayData(data) {
         const dataContainer = document.getElementById('data-container');
 
         
+        // pole wyszukiwania
+      const searchInput = document.createElement('input');
+      searchInput.type = 'text';
+      searchInput.placeholder = 'Search...';
+      searchInput.addEventListener('input', function () {
+        filterTable(this.value);
+      });
+      dataContainer.appendChild(searchInput);
+
+
         if (Array.isArray(data) && data.length > 0) {
             
             const table = document.createElement('table');
@@ -167,5 +197,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 })
+
+
+
+
 
 
