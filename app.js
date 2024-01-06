@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // pole wyszukiwania
       const searchInput = document.createElement('input');
       searchInput.type = 'text';
-      searchInput.placeholder = 'Search by name';
+      searchInput.placeholder =' Search';
       searchInput.addEventListener('input', function () {
         filterTable(this.value);
       });
