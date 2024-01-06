@@ -161,6 +161,8 @@ document.addEventListener("DOMContentLoaded", function () {
     //creates Pie chart for monuments
     function CreatechartMonument(intMonumentCounterYes,intMonumentCounterNo){
 
+      
+      // dane do wykresu
       const data = {
         labels: ["Yes", "No"],
         datasets: [
@@ -176,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ]
       };
 
-
+      //wykres kołowy
       const ctx = document.getElementById('MonumentsChart');
         new Chart(ctx, {
           type: 'pie',
@@ -199,6 +201,38 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 
+//pobieranie tabeli 
+
+function downloadTableAsFile() {
+  const dataContainer = document.getElementById('data-container');
+  const table = dataContainer.querySelector('table');
+
+  if (!table) {
+      console.error("Table not found");
+      return;
+  }
+
+  const tableHTML = table.outerHTML;
+  const blob = new Blob([tableHTML], { type: 'text/html' });
+
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'table.html';
+  a.style.display = 'none';
+  document.body.appendChild(a);
+
+  a.click();
+
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+}
+
+
+// przewijanie strony do samego dołu 
+
+function scrollToBottom() {
+  window.scrollTo(0, document.body.scrollHeight);
+}
 
 
 

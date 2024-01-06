@@ -42,8 +42,14 @@
 
             <div class="col-3">
                 <h1>Countries</h1>
-                <p>Project Team Members: [Daniel Jakubas, Dominik Kawula, Maciej Porwisz]</p>
+                <p>Project Team Members:  <br>
+                    <img src="J.png"  width="20" height="20"> Daniel Jakubas, <br>
+                    <img src="D.png"  width="20" height="20"> Dominik Kawula, <br>
+                    <img src="M.jpg"  width="20" height="20"> Maciej Porwisz</p>
             </div>
+
+
+
 
             <div class="col-6">
                 <canvas id="CountryPopulationChart"></canvas>
@@ -53,6 +59,12 @@
                 <canvas id="MonumentsChart"></canvas>
             </div>
 
+
+        </div>
+
+        <div class="buton" name="buttons">
+            <button onclick="scrollToBottom()" type="button" class="btn btn-secondary" id="button1">bottom of the page</button>
+            <button onclick="downloadTableAsFile()" type="button" class="btn btn-secondary" id="button2">Download data from table</button><br>
 
         </div>
 
@@ -77,6 +89,13 @@
     <a href="#" class="to-top">
         <i class="material-icons">arrow_upward</i>
     </a>
+
+
+    <footer>
+        <h4><label for="file">Site under construction</label><br>
+        <progress id="file" value="87" max="100"> 87% </progress></h4>
+    </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
