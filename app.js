@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
             dataContainer.appendChild(table);
 
             //DJ create a chart
-            CreatechartCoutryPopulation(arrCountryPopulation); 
+            CreatechartCountryPopulation(arrCountryPopulation); 
             CreatechartMonument(intMonumentCounterYes,intMonumentCounterNo);
         } else {
 
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //create a bar chart of top 10 countries by population
-    function CreatechartCoutryPopulation(arrCountryPopulation){
+    function CreatechartCountryPopulation(arrCountryPopulation){
 
         const countries = [];
         const population = [];
@@ -153,19 +153,39 @@ document.addEventListener("DOMContentLoaded", function () {
         const ctx = document.getElementById('CountryPopulationChart');
         new Chart(ctx, {
           type: 'bar',
+          
           data: {
             labels: countries,
+            
             datasets: [{
+              backgroundColor: 'rgb(84,179,214)',
               label: 'Population',
               data: population,
-              borderWidth: 1
+              borderWidth: 0
+              
             }]
           },
           options: {
+            
             scales: {
               y: {
-                min: arrCountryPopulation[0][1]*85/100 //to better reflect differences
-                
+                min: arrCountryPopulation[0][1]*50/100, //to better reflect differences
+                ticks:{
+                  color: 'rgb(0,0,0)'
+                }
+              },
+              x:{
+                ticks:{
+                  color: 'rgb(0,0,0)'
+                }
+              }
+              
+            },
+            plugins: {
+              legend: {
+                labels: {
+                  color: 'rgb(0,0,0)'
+                }
               }
               
             }
@@ -184,12 +204,12 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: ["Yes", "No"],
         datasets: [
           {
+            borderWidth: 0,
             label: 'Count',
             data: [intMonumentCounterYes,intMonumentCounterNo],
             backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(54, 162, 235)',
-              'rgb(255, 205, 86)'
+              'rgb(174, 214, 241)',
+              'rgb(84,179,214)'
             ],
           }
         ]
@@ -205,15 +225,20 @@ document.addEventListener("DOMContentLoaded", function () {
             plugins: {
               legend: {
                 position: 'top',
+                
+                labels:{
+                  color: 'rgb(0,0,0)',
+                }
               },
               title: {
                 display: true,
-                text: 'Has National Monument?'
+                text: 'Has National Monument?',
+                color: 'rgb(0,0,0)'
               }
             }
           },
         });
-
+        
     }
 })
 
